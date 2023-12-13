@@ -2,10 +2,10 @@
 
 @section('content')
 
-    <h2>Les Albums</h2>
+    <h2>{{$album->titre}}</h2>
 
-    <ul>
-        @foreach($album as $a)
+    <ul class="album-photos">
+        @foreach($photos as $a)
             <img src={{$a->url}} alt="">
         @endforeach
     </ul>

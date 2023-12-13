@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Mama le plus bo</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset('styles/app.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('styles/app.css') }}"/>
 </head>
 
 <body>
@@ -22,5 +22,7 @@
 </main>
 
 </body>
+
+@yield('js')
 
 </html>

@@ -6,7 +6,7 @@
 
 <ul>
 @foreach($albums as $a)
-  <li><a href='/albums/{{$a->id}}'>{{$a->titre}}</a></li>
+  <li><a href='/album/{{$a->id}}'>{{$a->titre}}</a></li>
 @endforeach
 </ul>
 @endsection

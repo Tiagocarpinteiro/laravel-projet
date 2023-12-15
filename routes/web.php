@@ -23,4 +23,10 @@ Route::get('/', function () {
 Route::get('/', [AlbumController::class, 'index']);
 Route::get('/about', [AlbumController::class, 'about']);
 Route::get("/albums", [ALbumController::class, 'albums']);
+Route::get("/photos", [ALbumController::class, 'photos']);
 Route::get("/album/{id}", [ALbumController::class, 'album'])->where("id", "[0-9]+");
+Route::get("/album/{id}/edit", [ALbumController::class, 'edit_album'])->where("id", "[0-9]+");
+
+Route::fallback(function() {
+    return view('404');
+});

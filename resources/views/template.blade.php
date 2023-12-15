@@ -13,7 +13,8 @@
     <h1>Mon super album</h1>
     <nav>
         <a href="/">Home</a>
-        <a href="/albums">Albums</a>
+        <a href="/albums">Nos Albums</a>
+        <a href="/photos">Nos Photos</a>
     </nav>
 </header>
 

@@ -2,23 +2,33 @@
 
 @section('content')
 
-  <h2>Photo de l'album</h2>
+    <div>
+        <h2>Toutes nos photos</h2>
+        <div class="sort_photos">
 
-<ul>
+        </div>
+    </div>
 
-  @foreach($photos as $photo)
-  @if($photos->album_id == {{$a->id}})
-
-
-    <li><img src={{$photo->url}}></li>
-  @endforeach
-
-
-
-</ul>
+    <ul class="album-photos">
+        @foreach($photos as $a)
+            <li class="album-photo">
+                <img src="{{$a->url}}" alt="" onclick="afficherImageEnGrand('{{$a->url}}', '{{$a->titre}}', '{{$a->titre}}')">
+                <div class="info-tooltip">
+                    @foreach($a->tags as $tag)
+                        <span class="tags_btn">{{$tag->nom}}</span>
+                    @endforeach
+                    <h3>{{$a->titre}}</h3>
+                    <p class="rate">
+                        @for ($i = 0; $i < $a->note; $i++)
+                            ⭐
+                        @endfor
+                    </p>
+                </div>
+            </li>
+        @endforeach
+    </ul>
 @endsection
 
-
-boucle albumS pour choisir l'ID de l'album
-  recupère l'ID de l'album pour trier les photos
-    afficher les photos PAR RAPPORT À L'ID
+@section('js')
+    <script src="{{ asset('js/zoom.js')}}"></script>
+@endsection

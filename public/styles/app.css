@@ -160,3 +160,25 @@ li a:hover {
     opacity: 0; /* Rend le texte entièrement opaque au survol */
     z-index: 99;
 }
+
+.Page404{
+        display: flex;
+        justify-content: center;
+        align-items:center ;
+    flex-direction: column;
+    }
+
+.Page404 a{
+    text-decoration: none;
+    padding:20px;
+    background: #3498db;
+    color:white;
+    border-radius: 10px;
+}
+
+.tags_btn{
+    padding:2px 5px;
+    background: rgba(255, 0, 0, 0.47);
+    color: white;
+    border-radius: 5px;
+}

@@ -26,6 +26,11 @@ Route::get("/albums", [ALbumController::class, 'albums']);
 Route::get("/photos", [ALbumController::class, 'photos']);
 Route::get("/album/{id}", [ALbumController::class, 'album'])->where("id", "[0-9]+");
 Route::get("/album/{id}/edit", [ALbumController::class, 'edit_album'])->where("id", "[0-9]+");
+Route::get("/addphoto/{id}", [ALbumController::class, 'addphoto'])->where("id", "[0-9]+");
+Route::post("/addphotoT", [ALbumController::class, 'addphotoT']);
+Route::get("/editalbum/{id}", [ALbumController::class, 'edit_album'])->where("id", "[0-9]+");
+Route::get("/deletephoto/{album_id}/{photo_id}", [ALbumController::class, 'deletephoto'])->where("id", "[0-9]+");
+
 
 Route::fallback(function() {
     return view('404');

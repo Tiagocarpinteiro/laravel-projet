@@ -2,11 +2,10 @@
 
 @section('content')
 
-    <div>
+    <div class="titre_album">
         <h2>{{$album->titre}}</h2>
-        <div class="sort_photos">
+        <a href="{{'/editalbum/' . $album->id }}">bite</a>
 
-        </div>
     </div>
 
     <ul class="album-photos">

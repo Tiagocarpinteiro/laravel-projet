@@ -28,7 +28,7 @@ class AlbumController extends Controller
             $photo->tags = $tags;
         }
       $tags = DB::select("SELECT * FROM tags");
-      return view("photos", ['photos' => $photos,]);
+      return view("photos", ['photos' => $photos]);
     }
 
     public function tags(){
@@ -53,10 +53,25 @@ class AlbumController extends Controller
         return view("edit_album", ['album' => $album[0], 'photos' => $photos]);
     }
 
-    public function addPhoto(string $titre,string $url,int $note,int $album_id){
+    public function addphoto($id){
+      $album = DB::select("SELECT * FROM albums where id = ?", [$id]);
+      return view("addphoto", ['album' => $album[0]]);
+    }
+    
+    public function addphotoT(){
+        $titre = $_POST['title'];
+        $url = $_POST['url'];
+        $note = $_POST['note'];
+        $album_id = $_POST['album_id'];
         DB::insert('insert into photos (titre, url, note, album_id) values (?, ?, ?, ?)', [$titre, $url, $note, $album_id]);
-        return to_route('album',['id'=>$album_id]);
+        return redirect('/album/'.$album_id);
     }
 
+    public function deletephoto(int $album_id,int $photo_id){
+      DB::table('photos')->where('id', $photo_id)->delete();
+      DB::table('possede_tag')->where('photo_id', $photo_id)->delete();
+      return redirect('/editalbum/'.$album_id);
+  }
+    
 }
 

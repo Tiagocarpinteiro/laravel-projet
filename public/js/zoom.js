@@ -9,7 +9,4 @@ function afficherImageEnGrand(url) {
     modal.addEventListener('click', function() {
         modal.remove();
     });
-    window.addEventListener('keydown', function() {
-        modal.remove();
-    });
 }

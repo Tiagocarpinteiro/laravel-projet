@@ -182,3 +182,53 @@ li a:hover {
     color: white;
     border-radius: 5px;
 }
+
+table {
+    margin: 1rem auto 5rem auto;
+    font-size: 1.25rem;
+    border-collapse: collapse;
+}
+
+td,
+th {
+    padding: 16px 24px;
+    text-align: center;
+}
+
+thead tr {
+    background-color: #3498db;
+    color: #fff;
+}
+
+thead th {
+    width: 25%;
+    border-right: solid 1px white;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f8f9fa;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #e9ecef;
+}
+
+tr:hover {
+    background-color: #ddd !important;
+}
+
+thead tr:hover {
+    background-color: #282828 !important;
+}
+
+td:hover {
+    background-color: #c9c9c9 !important;
+}
+
+table a{
+    text-decoration: none;
+}
+
+.table_url{
+    font-size: .8rem;
+}

@@ -4,7 +4,7 @@
 
     <div class="titre_album">
         <h2>{{$album->titre}}</h2>
-        <a href="{{'/editalbum/' . $album->id }}">bite</a>
+        <a href="{{'/editalbum/' . $album->id }}">Editer cet album</a>
 
     </div>
 

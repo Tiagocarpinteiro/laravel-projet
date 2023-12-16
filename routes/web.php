@@ -21,7 +21,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/', [AlbumController::class, 'index']);
-Route::get('/about', [AlbumController::class, 'about']);
 Route::get("/albums", [ALbumController::class, 'albums']);
 Route::get("/photos", [ALbumController::class, 'photos']);
 Route::get("/album/{id}", [ALbumController::class, 'album'])->where("id", "[0-9]+");

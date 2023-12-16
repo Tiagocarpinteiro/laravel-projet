@@ -4,6 +4,7 @@
 
     <div class="titre_album">
         <h2>{{$album->titre}}</h2>
+        <a href="{{'/album/' . $album->id }}">Retourner a l'album</a>
         <a href="{{'/addphoto/' . $album->id }}">Ajouter une photo</a>
     </div>
 
@@ -18,7 +19,7 @@
         </tr>
         </thead>
 
-        @foreach($photos as $photo) 
+        @foreach($photos as $photo)
             <tr>
                 <td>{{$photo->id}}</td>
                 <td class="table_url">{{$photo->url}}</td>
@@ -32,7 +33,7 @@
         @endforeach
 
     </table>
-    
+
 @endsection
 
 

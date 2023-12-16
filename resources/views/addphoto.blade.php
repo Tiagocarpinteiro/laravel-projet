@@ -12,6 +12,11 @@
       <input type="url" name='url' placeholder="Url vers votre photo" require>
       <input type="number" name="note" min="1" max="5" value="1" require/>
       <input type="hidden" name="album_id" value="{{$album->id}}" require />
+        <select name="tag_ids[]" id="tag_id" multiple>
+            @foreach($tags as $tag)
+                <option value="{{ $tag->id }}">{{ $tag->nom }}</option>
+            @endforeach
+        </select>
       <input type='submit' name='Ajouter photo' value='Ajouter photo'>
     </form>
 

@@ -33,6 +33,7 @@ class AlbumController extends Controller
 
             }
         }
+
         $albums = DB::select($query, $variables);
         return view("albums", ['albums' => $albums]);
     }
@@ -46,6 +47,7 @@ class AlbumController extends Controller
 
         $tagId = $request->input('tag_id');
         $searchTitle = $request->input('search_title');
+        $sort = $request->input('sort');
 
         $query = "SELECT photos.id,  photos.url, photos.titre, photos.note, photos.album_id FROM photos";
         $variables = [];
@@ -68,6 +70,13 @@ class AlbumController extends Controller
             $variables[] = $id;
         }
 
+        if ($sort){
+            if($sort == 'note'){
+                $query .= ' ORDER BY photos.note DESC';
+            }else{
+                $query .= ' ORDER BY photos.titre';
+            }
+        }
 
         $photos = DB::select($query, $variables);
 
@@ -133,6 +142,7 @@ class AlbumController extends Controller
     public function photos(Request $request) {
         $tagId = $request->input('tag_id');
         $searchTitle = $request->input('search_title');
+        $sort = $request->input('sort');
 
         $query = "SELECT photos.id,  photos.url, photos.titre, photos.note, photos.album_id FROM photos";
         $variables = [];
@@ -146,7 +156,13 @@ class AlbumController extends Controller
             $query .= ($tagId ? " AND" : " WHERE") . " titre LIKE ?";
             $variables[] = "%$searchTitle%";
         }
-
+        if ($sort){
+            if($sort == 'note'){
+                $query .= ' ORDER BY photos.note DESC';
+            }else{
+                $query .= ' ORDER BY photos.titre';
+            }
+        }
         $photos = DB::select($query, $variables);
 
         foreach ($photos as $photo) {

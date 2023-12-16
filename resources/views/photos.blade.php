@@ -18,7 +18,14 @@
 
         <label for="search_title">Rechercher par titre:</label>
         <input type="text" name="search_title" id="search_title">
-
+        <div>
+            <label for="sort">Trier les résultats par:</label>
+            <select name="sort" id="sort">
+                <option value="">Trier les resultats</option>
+                <option value="note">Note</option>
+                <option value="titre">Titre</option>
+            </select>
+        </div>
         <button type="submit">Filtrer</button>
     </form>
 
